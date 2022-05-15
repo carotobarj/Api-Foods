@@ -26,13 +26,17 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    image:{
-type: DataTypes.STRING,
-allowNull: false,
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    steps:{
-      type:DataTypes.TEXT,
-      allowNull:false,
+    steps: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    dishTypes: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     createdInDb: {
       type: DataTypes.BOOLEAN,

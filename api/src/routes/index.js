@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const dietTypes = require('./dietTypes');
 const recipes = require('./recipes');
+const recipe = require('./recipe');
 
 
 
@@ -13,6 +14,7 @@ const router = Router();
 
 router.use('/types', dietTypes);
 router.use('/recipes', recipes);
+router.use('/recipe', recipe);
 
 
 // Configurar los routers
