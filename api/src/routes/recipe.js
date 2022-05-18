@@ -21,7 +21,7 @@ const newRecipe = await Recipe.create({
         where:{ name: dietType }
     });
     newRecipe.addDietType(dietTypesDB);
-    res.status(200).json({mensaje: 'Receta creada exitosamente'})
+    res.status(200).json({mensaje: 'Recipe created successfully'});
 
     } catch (error) {
         console.log(error);

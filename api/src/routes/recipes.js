@@ -55,7 +55,7 @@ const allRecipes = await getAllRecipes()
 const {name} = req.query;
 if(name){
     let nameRecipe = await allRecipes.filter(el => el.title.toLowerCase().includes(name.toLowerCase()));
-     (nameRecipe.length > 0 ? res.json(nameRecipe): res.send({ message: 'No se encontraron resultados' }))
+     (nameRecipe.length > 0 ? res.json(nameRecipe): res.send({ message: 'Recipe not found' }))
 }else{
     res.json(allRecipes)
 }
@@ -64,10 +64,11 @@ if(name){
 
 router.get('/:id', async (req, res) => {
     const { id } = req.params;
+
     const getTotalInfo = await getAllRecipes();
     try {
         getTotalInfo.forEach(el => {
-            if (el.id === Number(id)) {
+            if (el.id == id) {
                 res.json({
                     id: el.id,
                     title: el.title,
@@ -84,7 +85,7 @@ router.get('/:id', async (req, res) => {
         })
 
     } catch (error) {
-        console.log("ID no encontrado");
+        console.log("ID not found");
     }
 
 });      

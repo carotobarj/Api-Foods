@@ -1,0 +1,11 @@
+
+
+@media (max-width: 500px) {
+    .divFiltros {
+        height: auto;
+        width: auto;
+    }
+
+}
+
+@media only screen and (min-width:501) and (max-width: 850px) {} 
