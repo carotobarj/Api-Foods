@@ -2,8 +2,9 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { recipeDetail, cleanData} from "../../actions";
+import { recipeDetail, cleanData, } from "../../actions";
 import s from "./RecipeDetail.module.css";
+import image from '../../images/food5.jpeg';
 
 
 export default function RecipeDetail() {
@@ -17,7 +18,7 @@ export default function RecipeDetail() {
     useEffect(() => {
         
         dispatch(recipeDetail(id));
-        return function () {
+                return function () {
             dispatch(cleanData())
         }
     }, [dispatch, id])
@@ -33,6 +34,7 @@ export default function RecipeDetail() {
     return (
 
         <div className={s.container}>
+            <img className={s.image} src={image}alt=''/>
             {
                 detail ?
 
@@ -44,13 +46,14 @@ export default function RecipeDetail() {
                         <p> Dish Type:</p>
                         <p>{detail.dishTypes}</p>
                         <p> Diet Type:</p>
-                        {detail.dietType.join(", ")}
+                        {detail.DietType ? detail.DietTypeDietType.map(e =>e.name) : detail.dietType}
                         <p> Summary:</p>
                         <p dangerouslySetInnerHTML={detailSummary()}></p>
                         {/* <span>{detail.summary}</span> */}
                         <p> Instructions:</p>
                         <span>{detail.steps}</span>
                         <div>
+                        <br/>
                             <Link to={'/home'}>
                                 <button>Go back to Home</button>
                             </Link>

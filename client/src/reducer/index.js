@@ -1,118 +1,82 @@
-import { GET_ALL, GET_ALL_DIETS, FILTER_BY_CREATOR, FILTER_BY_DIETS, ORDER_BY_SCORE, ORDER_BY_NAME, SEARCH_BY_NAME, RECIPE_DETAIL, CLEAN_DATA, POST_RECIPE } from '../actions';
+import { GET_ALL, GET_ALL_DIETS, SEARCH_BY_NAME, CLEAN_DATA, FILTER_BY_DIETS, ORDER_BY_SCORE, ORDER_BY_NAME, RECIPE_DETAIL, POST_RECIPE, FILTER_BY_CREATOR } from "../actions/index.js";
 
 const initialState = {
     recipes: [],
     allRecipes: [],
-    RecipeDetail: [],
     dietType: [],
-}
+    recipeDetail: [],
+};
 
-function rootReducer(state = initialState, action) {
+export default function rootReducer(state = initialState, action) {
     switch (action.type) {
-
         case GET_ALL:
             return {
                 ...state,
                 recipes: action.payload,
-                allRecipes: action.payload,
-
-            }
-
+                allRecipes: action.payload
+            };
+        case CLEAN_DATA:
+            return {
+                ...state,
+                detail: {},
+                videogames: [],
+            };
+        case SEARCH_BY_NAME:
+            return {
+                ...state,
+                recipes: action.payload
+            };
         case GET_ALL_DIETS:
-            console.log(action.payload)
             return {
                 ...state,
                 dietType: action.payload,
-
-            }
-
-        case FILTER_BY_CREATOR:
-            const creatorFilter = action.payload === 'createdInDb' ? state.allRecipes.filter(el => el.createdInDb) : state.allRecipes.filter(el => !el.createdInDb)
-            return {
-                ...state,
-                recipes: action.payload === 'ALL' ? state.allRecipes : creatorFilter,
-
-            }
-
+               
+            };
         case FILTER_BY_DIETS:
             const allRecipes = state.allRecipes
-            const dietsFilter = action.payload === 'ALL' ? allRecipes : allRecipes.filter((el) => el.dietType.includes(action.payload))
+            const dietsFilter = action.payload === 'ALL' ? allRecipes : allRecipes.filter((el) => el.dietType?.includes(action.payload))
             console.log(dietsFilter)
             return {
                 ...state,
                 recipes: dietsFilter
             }
-        // case FILTER_BY_DIETS:
-        //     const allRecipes = state.allRecipes;
-        //     let filterRecipes = [];
-        //     if(action.payload === "ALL") {
-        //         filterRecipes = allRecipes
-        //     } else {
-        //         for (let i = 0; i < allRecipes.length; i++) {
-        //             let found =  allRecipes[i].dietType
-        //             let found2 = found.map((e) => e === action.payload);
-                    
-        //             if(found2) filterRecipes.push(allRecipes[i])
-        //         }
-        //     }
-        //     return {
-        //         ...state,
-        //         recipes: filterRecipes
-        //     };
 
         case ORDER_BY_SCORE:
-            let hightToLowRecipes = action.payload === "score-+" ? state.recipes.sort((a, b) => {
-                if (a.score > b.score) {
-                    return 1;
-                } if (b.score > a.score) {
-                    return -1;
-                }
-                return 0;
-            }) :
-                state.recipes.sort(function (a, b) {
-                    if (a.title > b.title) {
-                        return -1;
-                    }
-                    if (b.title > a.title) {
-                        return 1;
-                    }
-                    return 0;
-                })
-                console.log(hightToLowRecipes)
+            let hightToLowRecipes =
+                action.payload === "Score-+"
+                    ? state.recipes.sort((a, b) => a.score - b.score)
+                    : state.recipes.sort((a, b) => b.score - a.score);
             return {
                 ...state,
-                recipes: hightToLowRecipes
-            }
+                recipes: action.payload === "Order By Score" ? state.recipes : hightToLowRecipes,
+            };
 
         case ORDER_BY_NAME:
-            let aZRecipes = action.payload === "AZ" ? state.allRecipes.sort(function (a, b) {
-                if (a.title > b.title) {
-                    return 1;
-                }
-                if (b.title > a.title) {
-                    return -1;
-                }
-                return 0;
-            }) :
-                state.recipes.sort(function (a, b) {
-                    if (a.title > b.title) {
-                        return -1;
-                    }
-                    if (b.title > a.title) {
-                        return 1;
-                    }
-                    return 0;
-                })
+            let aZRecipes =
+                action.payload === "AZ"
+                    ? state.recipes.sort(function (a, b) {
+                        if (a.title.toLowerCase() > b.title.toLowerCase()) {
+                            return 1;
+                        }
+                        if (b.title.toLowerCase() > a.title.toLowerCase()) {
+                            return -1;
+                        }
+                        return 0;
+                    })
+                    : state.recipes.sort(function (a, b) {
+                        if (a.title.toLowerCase() < b.title.toLowerCase()) {
+                            return 1;
+                        }
+                        if (b.title.toLowerCase() < a.title.toLowerCase()) {
+                            return -1;
+                        }
+                        return 0;
+                    });
             return {
                 ...state,
-                recipes: aZRecipes
-            }
+                recipes: action.payload === "default" ? state.recipes : aZRecipes,
+            };
 
-        case SEARCH_BY_NAME:
-            return {
-                ...state,
-                recipes: action.payload,
-            }
         case RECIPE_DETAIL:
             return {
                 ...state,
@@ -122,17 +86,15 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
             }
-
-        case CLEAN_DATA:
+        case FILTER_BY_CREATOR:
+            const creatorFilter = action.payload === 'createdInDb' ? state.allRecipes.filter(el => el.createdInDb) : state.allRecipes.filter(el => !el.createdInDb)
             return {
                 ...state,
-                recipes: [],
+                recipes: action.payload === 'ALL' ? state.allRecipes : creatorFilter,
+
             }
-           
         default:
-            return state;
-        }
+            return state
     }
+}
 
-
-export default rootReducer;

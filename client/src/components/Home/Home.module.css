@@ -1,5 +1,31 @@
+.image {
+    position: fixed;
+    object-fit: cover;
+    top:0;
+    left:0;
+    z-index: -1;
+   
+    height: 100vh;
+    width: 100%;
+    align-content: center;
+    border-radius: 10px;
+   
+}
 
+.card2 {
 
+    grid-template-columns: 2fr;
+    grid-template-rows: 3fr;
+    margin-top: 20px;
+    margin-bottom: auto;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
+    box-shadow: 4px 6px 14px #262525;
+    padding: 16px;
+}
 @media (max-width: 500px) {
     .divFiltros {
         height: auto;

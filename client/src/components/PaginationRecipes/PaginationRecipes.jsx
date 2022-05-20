@@ -7,14 +7,12 @@ export default function pagination({ allRecipes, pageSize, page, goToPreviousPag
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(allRecipes / pageSize); i++) {
-        pageNumbers.push(i);
+        pageNumbers.push(i);;
     }
     return (
         <nav>
             <div className={s.pagination}>
-
                 <button onClick={goToPreviousPage} className={s.btn}>Prev</button>
-
                 {pageNumbers && pageNumbers.map(number => {
                     return (
                         <ul className='number' key={number}>
