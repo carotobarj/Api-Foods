@@ -11,9 +11,8 @@ export default function RecipeDetail() {
 
     const { id } = useParams();
     const detail = useSelector((state) => state.recipeDetail);
-    console.log(detail)
+    console.log(detail);
     const dispatch = useDispatch();
-
 
     useEffect(() => {
         
@@ -23,12 +22,9 @@ export default function RecipeDetail() {
         }
     }, [dispatch, id])
 
-    console.log(detail)
-
-    let detailRecipe = useSelector((state) => state.recipeDetail);
     
     function detailSummary() {
-        return { __html: detailRecipe.summary }
+        return { __html: detail.summary }
     }
 
     return (
@@ -46,7 +42,7 @@ export default function RecipeDetail() {
                         <p> Dish Type:</p>
                         <p>{detail.dishTypes}</p>
                         <p> Diet Type:</p>
-                        {detail.DietType ? detail.DietTypeDietType.map(e =>e.name) : detail.dietType}
+                        {detail.dietType}
                         <p> Summary:</p>
                         <p dangerouslySetInnerHTML={detailSummary()}></p>
                         {/* <span>{detail.summary}</span> */}

@@ -15,7 +15,7 @@ const getRecipesApi = async () => {
             return {
                 id: e.id,
                 title: e.title,
-                dietType: e.diets,
+                dietTypes: e.diets,
                 summary: e.summary,
                 score: e.spoonacularScore,
                 healthScore: e.healthScore,
@@ -73,7 +73,20 @@ router.get('/:id', async (req, res) => {
                 res.json({
                     id: el.id,
                     title: el.title,
-                    dietType: el.dietType,
+                    dietTypes: el.dietType,
+                    summary: el.summary,
+                    score: el.score,
+                    healthScore: el.healthScore,
+                    dishTypes: el.dishTypes,
+                    image: el.image,
+                    steps: el.steps
+                 
+                })
+            }else if(el.id == id && id.length >= 5){
+                res.json({
+                    id: el.id,
+                    title: el.title,
+                    dietTypes: el.dietType,
                     summary: el.summary,
                     score: el.score,
                     healthScore: el.healthScore,
@@ -83,12 +96,12 @@ router.get('/:id', async (req, res) => {
                  
                 })
             }
+
         })
 
     } catch (error) {
         console.log("ID not found");
     }
-
 });      
               
 

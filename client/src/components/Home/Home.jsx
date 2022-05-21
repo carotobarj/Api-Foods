@@ -7,7 +7,7 @@ import PaginationRecipes from '../PaginationRecipes/PaginationRecipes';
 import SearchBar from '../SearchBar/SearchBar';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import s from './Home.module.css';
-import image from '../../images/food3.jpeg';
+//import image from '../../images/food3.jpeg';
 
 
 export default function Home() {
@@ -61,7 +61,7 @@ export default function Home() {
     }
     return (
         <div className={s.container}>
-            <img className={s.image} src={image}alt=''/>
+            {/* <img className={s.image} src={image}alt=''/> */}
             <h1 className={s.Titulo}>MY RECIPES</h1>
             <button className={s.btnR} onClick={e => (handleOnClick(e))}>Reload all Recipes</button>
             <div className={s.titulo}>
@@ -121,6 +121,8 @@ export default function Home() {
                                             healthScore={el.healthScore}
                                             dietType={el.dietType}
                                             dishTypes={el.dishTypes}
+                                            createdInDB={el.createdInDB}
+                                    
                                         />
 
                                     </Link>

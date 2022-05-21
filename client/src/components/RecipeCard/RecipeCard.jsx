@@ -2,7 +2,7 @@ import React from 'react';
 import s from './RecipeCard.module.css';
 
 
-export default function RecipeCard({ title, summary, score, healthScore, image, steps, dietType, dishTypes, createdAt, updatedAt }) {
+export default function RecipeCard({ title, summary, score, healthScore, image, steps, dietTypes, dishTypes, createdInDB, createdAt, updatedAt }) {
    
     return (
         <div className={s.container}>
@@ -15,7 +15,7 @@ export default function RecipeCard({ title, summary, score, healthScore, image, 
                 <p>{score}</p>
                 <p>{healthScore}</p>
                 <p>{steps}</p>
-                <p>{dietType}</p>
+                <p>{dietTypes}</p>
                 <p> {dishTypes}</p>
             </div>
         </div>

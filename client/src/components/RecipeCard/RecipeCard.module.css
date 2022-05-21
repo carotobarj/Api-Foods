@@ -1,0 +1,20 @@
+.container {
+    width: 100%;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow: #5a6368;
+    transition: all .3s;
+   }
+   .content{
+    text-align: center;
+    padding-bottom: 0.5em;
+    font-style: normal;
+    font-weight: bold;
+    color:rgb(247, 242, 245)
+    
+    }
+
+    .container:hover {
+        transform: scale(1.10);
+        box-shadow: rgba(73, 63, 70, 0.05) 25px 25px;
+       }

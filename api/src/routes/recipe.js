@@ -14,7 +14,6 @@ const newRecipe = await Recipe.create({
     healthScore,
     image,
     steps,
-    dietType,
     dishTypes
     });
     let dietTypesDB = await DietType.findAll({
