@@ -6,14 +6,14 @@ const router = Router();
 
 router.post('/' , async (req, res) => {
     try {
-        const {title, summary, score, healthScore, image, steps, dietType, dishTypes} = req.body;
+        const {title, summary, score, healthScore, image, instructions, dietType, dishTypes} = req.body;
 const newRecipe = await Recipe.create({
     title,
     summary,
     score,
     healthScore,
     image,
-    steps,
+    instructions,
     dishTypes
     });
     let dietTypesDB = await DietType.findAll({

@@ -4,7 +4,7 @@ const initialState = {
     recipes: [],
     allRecipes: [],
     dietType: [],
-    recipeDetail: [],
+    recipeDetail: {},
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -18,8 +18,8 @@ export default function rootReducer(state = initialState, action) {
         case CLEAN_DATA:
             return {
                 ...state,
-                detail: {},
-                videogames: [],
+                detail: action.payload,
+                
             };
         case SEARCH_BY_NAME:
             return {

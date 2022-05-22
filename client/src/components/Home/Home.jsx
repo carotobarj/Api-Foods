@@ -7,20 +7,30 @@ import PaginationRecipes from '../PaginationRecipes/PaginationRecipes';
 import SearchBar from '../SearchBar/SearchBar';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import s from './Home.module.css';
-//import image from '../../images/food3.jpeg';
-
+import image from '../../images/food3.jpeg';
+import Loading from '../Loading/Loading';
+import NotFoundRecipe from '../NotFound/NotFoundRecipe';
 
 export default function Home() {
 
     const dispatch = useDispatch();
     const allRecipes = useSelector((state) => state.recipes);
-    const [, setOrder] = useState('');
+    const dietType = useSelector((state) => state.dietType);
+    const [loading, setLoading] = useState(true);
 
+    // eslint-disable-next-line
+    const [order, setOrder] = useState('');
+   
     const [pageCurrent, setPageCurrent] = useState(1);
-    const [pageSize,] = useState(9);
+    const pageSize = 9;
     const indexOfLastRecipes = pageCurrent * pageSize;
     const indexOfFirstRecipes = indexOfLastRecipes - pageSize;
-    const currentRecipes = allRecipes.slice(indexOfFirstRecipes, indexOfLastRecipes)
+    const currentRecipes = allRecipes?.slice(indexOfFirstRecipes, indexOfLastRecipes)
+
+if(allRecipes.length > 0 && loading){
+    setLoading(false);
+}
+
 
     const page = (pageNumber) => {
         setPageCurrent(pageNumber)
@@ -61,7 +71,7 @@ export default function Home() {
     }
     return (
         <div className={s.container}>
-            {/* <img className={s.image} src={image}alt=''/> */}
+             <img className={s.image} src={image}alt=''/> 
             <h1 className={s.Titulo}>MY RECIPES</h1>
             <button className={s.btnR} onClick={e => (handleOnClick(e))}>Reload all Recipes</button>
             <div className={s.titulo}>
@@ -86,16 +96,11 @@ export default function Home() {
                 </select>
 
                 <select onChange={(e) => handleFilterByDiets(e)}>
-                    <option value={"All"}>All</option>
-                    <option value={"gluten free"}>gluten free</option>
-                    <option value={"dairy free"}>dairy free</option>
-                    <option value={"lacto ovo vegetarian"}>lacto ovo vegetarian</option>
-                    <option value={"vegan"}>vegan</option>
-                    <option value={"pescatarian"}>pescatarian</option>
-                    <option value={"primal"}>primal</option>
-                    <option value={"fodmap friendly"}>fodmap friendly</option>
-                    <option value={"paleolithic"}>paleolithic</option>
-                    <option value={"whole 30"}>whole 30</option>
+                <option value='ALL'> Total Recipes </option>
+                {dietType?.map(el => (
+                            <option key={el} value={el}>{el}</option>
+                        ))
+                        }
                 </select>
                 <select onChange={e => handleScore(e)}>
                     <option value='Order By Score'> ORDER BY SCORE </option>
@@ -106,7 +111,7 @@ export default function Home() {
 
             <div className={s.card2}>
                 {
-                    currentRecipes.length > 0 ? (
+                    currentRecipes.length > 0 && !loading ? (
                         currentRecipes && currentRecipes.map(el => {
 
                             return (
@@ -119,7 +124,7 @@ export default function Home() {
                                             image={el.image}
                                             score={el.score}
                                             healthScore={el.healthScore}
-                                            dietType={el.dietType}
+                                            dietType={el.dietType|| el.dietTypes.map(el => el.name)}
                                             dishTypes={el.dishTypes}
                                             createdInDB={el.createdInDB}
                                     
@@ -130,7 +135,11 @@ export default function Home() {
                                 </div>
                             )
                         })
-                    ) : <p>"There are no recipes"</p>
+                    ) : !currentRecipes.length > 0 && loading ? (
+                        <Loading/>
+                    ) : (
+                        <NotFoundRecipe/>
+                    )
                 }
             </div>
             <PaginationRecipes

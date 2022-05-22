@@ -1,4 +1,12 @@
-/* .image {
+.Titulo{
+    text-align: center;
+    padding-bottom: 0.5em;
+    font-style: normal;
+    font-weight: bold;
+    color: rgb(203, 197, 201);
+}
+
+ .image {
     position: fixed;
     object-fit: cover;
     top:0;
@@ -10,24 +18,17 @@
     align-content: center;
     border-radius: 10px;
    
-} */
-
-.card2 {
-
-    grid-template-columns: 4fr;
-    grid-template-rows: 3fr;
-    margin-top: 20px;
-    margin-bottom: auto;
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10%;
-    box-shadow: 4px 6px 14px #262525;
-    padding: 6px;
-  
+} 
+.btnR{
     
 }
+.card2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
 @media (max-width: 500px) {
     .divFiltros {
         height: auto;

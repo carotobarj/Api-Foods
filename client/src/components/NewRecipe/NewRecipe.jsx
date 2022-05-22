@@ -14,7 +14,13 @@ function validate(input) {
     input.summary
         ? (errors.summary = "")
         : (errors.summary = "You must provide a summary");
-    input.diets === 0
+        input.dishTypes
+        ? (errors.dishTypes = "")
+        : (errors.dishTypes = "You must provide a dish type");
+        input.instructions
+        ? (errors.instructions = "")
+        : (errors.instructions = "You must provide an instruction");
+        input.diets === 0
         ? (errors.diets = "Choose at least one diet")
         : (errors.diets = "");
     if (!input.score) {
@@ -47,8 +53,9 @@ export default function NewRecipe() {
         image: '',
         dietType: [],
         score: '',
+        dishTypes:'',
         healthScore: '',
-        steps: []
+        instructions: '',
     });
 
 
@@ -78,7 +85,7 @@ export default function NewRecipe() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (input.title && input.summary && input.image && input.healthScore && input.steps && input.dietType) {
+        if (input.title) {
             console.log(input)
             dispatch(postRecipe(input))
             alert('Recipe created succesfully!')
@@ -88,8 +95,9 @@ export default function NewRecipe() {
                 image: '',
                 dietType: [],
                 score: '',
+                dishTypes:'',
                 healthScore: '',
-                steps: []
+                instructions: '',
             })
             history.push('/home')
         } else {
@@ -110,55 +118,56 @@ export default function NewRecipe() {
 
     return (
         <div className={s.container}>
- <img className={s.image} src={image}alt=''/>
+            <img className={s.image} src={image} alt='' />
             <h1 className={s.titulo}>New Recipe</h1>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <div className={s.formGral}>
-                    <label>Title:</label>
-                    <input type='text' placeholder='Complete here...' value={input.title} name='title' onChange={(e) => handleChange(e)} />
+            <form className={s.formGral}onSubmit={(e) => handleSubmit(e)}>
+                   <label className={s.label}>Title:</label>
+                <div >
+                    <input className={s.input} type='text' placeholder='Complete here...' value={input.title} name='title' onChange={(e) => handleChange(e)} />
                     {errors.title && <p>{errors.title}</p>}
                 </div>
-                <div>
-                    <label>Summary:</label>
-                    <input type='text' placeholder='Complete here...' value={input.summary} name='summary' onChange={(e) => handleChange(e)} />
+                    <label className={s.label}>Summary:</label>
+                <div >
+                    <input className={s.input} type='text' placeholder='Complete here...' value={input.summary} name='summary' onChange={(e) => handleChange(e)} />
                     {errors.summary && <p>{errors.summary}</p>}
                 </div>
-                <div className={s.image2}>
-                    <label>Imagen:</label>
-                    <input type='text' placeholder='Complete here...' value={input.image} name='image' onChange={(e) => handleChange(e)} />
+                    <label className={s.label}>Imagen:</label>
+                <div >
+                    <input className={s.input} type='text' placeholder='Complete here...' value={input.image} name='image' onChange={(e) => handleChange(e)} />
                     {errors.image && <p> {errors.image}</p>}
                 </div>
-                <div className={s.diet}>
-                    <label>Diet Types:</label>
-                    <select onChange={(e) => handleSelect(e)}>
-                        <option value={"gluten free"}>gluten free</option>
-                        <option value={"dairy free"}>dairy free</option>
-                        <option value={"lacto ovo vegetarian"}>lacto ovo vegetarian</option>
-                        <option value={"vegan"}>vegan</option>
-                        <option value={"pescatarian"}>pescatarian</option>
-                        <option value={"primal"}>primal</option>
-                        <option value={"fodmap friendly"}>fodmap friendly</option>
-                        <option value={"paleolithic"}>paleolithic</option>
-                        <option value={"whole 30"}>whole 30</option>
+                    <label className={s.label}>Diet Types:</label>
+                <div >
+                       <select onChange={(e) => handleSelect(e)} className={s.select}>
+                        {dietType?.map(el => (
+                            <option key={el} value={el}>{el}</option>
+                        ))
+                        }
                     </select>
                     <ul><li>{input.dietType}</li></ul>
                     {errors.diets && <p>{errors.diets}</p>}
                 </div>
-
+                <label className={s.label}>Dish Type:</label>
                 <div>
-                    <label>score:</label>
-                    <input type='text' placeholder='Complete here...' value={input.score} name='score' onChange={(e) => handleChange(e)} />
+                    <input className={s.input} type='text' placeholder='Complete here...' value={input.dishTypes} name='dishTypes' onChange={(e) => handleChange(e)} />
+                    {errors.dishTypes && <p>{errors.dishTypes}</p>}
+                </div>
+                    <label className={s.label}>score:</label>
+                <div >
+                    <input className={s.input} type='text' placeholder='Complete here...' value={input.score} name='score' onChange={(e) => handleChange(e)} />
                     {errors.score && <p>{errors.score}</p>}
                 </div>
-                <div>
-                    <label>healthScore:</label>
-                    <input type='text' placeholder='Complete here...' value={input.healthScore} name='healthScore' onChange={(e) => handleChange(e)} />
+                <div >
+                    <label className={s.label}>healthScore:</label>
+                    <input className={s.input} type='text' placeholder='Complete here...' value={input.healthScore} name='healthScore' onChange={(e) => handleChange(e)} />
                     {errors.healthScore && <p>{errors.healthScore}</p>}
                 </div>
-                <div className={s.instructions}>
-                    <label className='labelInstruct'>Instructions:</label>
-                    <textarea type='text' className={s.instructions} placeholder='Complete here...' value={input.analyzedInstructions} name='analyzedInstructions'
+                <label className='labelInstruct'>Instructions:</label>
+                <div className={s.label}>
+                    <textarea type='text' className={s.input} placeholder='Complete here...' value={input.instructions} name='instructions'
                         onChange={(e) => handleChange(e)} />
+                    {errors.instructions && <p>{errors.instructions}</p>}
+      
 
                 </div>
                 <button type='submit'>Create</button>
@@ -170,7 +179,8 @@ export default function NewRecipe() {
                 </div>
 
             )}
-            <br/>
+          
+            <br />
 
             <Link to="/home"><button>Go Back to Home</button></Link>
         </div>

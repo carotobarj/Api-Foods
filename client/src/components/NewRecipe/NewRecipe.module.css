@@ -11,3 +11,35 @@
     border-radius: 10px;
    
 }
+.formGral{
+    
+    justify-content: center;
+    width:70%;
+    margin:auto;
+    display: grid;
+}
+
+.label{
+    display: flex;
+    justify-content: center;   
+}
+.input{
+    padding: 5px 70px; 
+}
+/* .input {
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: #e8e8e8;
+    box-shadow: 6px 6px 12px #ffffff,
+                -6px -6px 12px #c5c5c5;
+    font-size: medium;
+    font-weight: bold;
+    max-width: 200px;
+   }
+   
+   .input:focus {
+    outline-color: white;
+    place-content: "Enter your message!";
+   }   
+    */

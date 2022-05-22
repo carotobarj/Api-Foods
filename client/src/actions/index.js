@@ -8,7 +8,7 @@ export const CLEAN_DATA = 'CLEAN_DATA';
 export const FILTER_BY_DIETS = 'FILTER_BY_DIETS';
 export const ORDER_BY_SCORE = 'ORDER_BY_SCORE';
 export const ORDER_BY_NAME = 'ORDER_BY_NAME';
-export const RECIPE_DETAIL  = 'RECIPE_DETAIL';
+export const RECIPE_DETAIL = 'RECIPE_DETAIL';
 export const POST_RECIPE = 'POST_RECIPE';
 export const FILTER_BY_CREATOR = 'FILTER_BY_CREATOR';
 
@@ -41,7 +41,7 @@ export function getAll() {
 //     }
 // };
 
-export function getAllDiets(dietTypes) {
+export function getAllDiets() {
 
     return async function (dispatch) {
         try {
@@ -49,7 +49,7 @@ export function getAllDiets(dietTypes) {
             console.log(dietTypes.data);
             return dispatch({
                 type: GET_ALL_DIETS,
-                payload: dietTypes
+                payload: dietTypes.data
             });
         } catch (error) {
             console.log(error.response.data)
@@ -66,19 +66,22 @@ export function searchByName(name) {
                 payload: json.data
             })
         } catch (error) {
-            console.log(error.response.data);
+            dispatch({
+                type: SEARCH_BY_NAME,
+                payload: [],
+            })
         }
     }
 };
 
 
-export const cleanData = () => (dispatch) => {
-    let clean = {};
-    dispatch({
-        type: "CLEAN_DATA",
-        payload: clean
-    })
-
+export function cleanData() {
+    return function (dispatch) {
+        dispatch({
+            type: CLEAN_DATA,
+            payload: {},
+        })
+    }
 }
 
 export function filterByDiets(dietType) {
@@ -108,7 +111,10 @@ export function recipeDetail(id) {
                 type: "RECIPE_DETAIL",
                 payload: json.data
             }))
-            .catch(error => console.log(error.json.data))
+            .catch(error => dispatch({
+                type: "RECIPE_DETAIL",
+                payload: '',
+            }))
     }
 };
 
@@ -121,7 +127,7 @@ export function postRecipe(payload) {
 
     }
 };
-export function filterByCreator(payload){
+export function filterByCreator(payload) {
     return {
         type: 'FILTER_BY_CREATOR',
         payload: payload,

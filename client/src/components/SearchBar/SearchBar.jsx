@@ -3,12 +3,13 @@ import { useState  } from 'react';
 import { useDispatch  } from 'react-redux';
 import { cleanData, searchByName } from '../../actions';
 import s from './SearchBar.module.css';
+
 export default function SearchBar() {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
     
     function handleInputChange (e){
-    //e.preventDefault();
+    e.preventDefault();
     setName(e.target.value);
   
     } 
