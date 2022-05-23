@@ -1,8 +1,8 @@
 const { Router } = require('express');
 require('dotenv').config();
 const {DietType} = require('../db');
-//const { API_KEY } = process.env;
-//const axios = require('axios');
+// const { API_KEY } = process.env;
+// const axios = require('axios');
 const router = Router();
 const InfoTotal = require('../../InfoTotal.json');
 

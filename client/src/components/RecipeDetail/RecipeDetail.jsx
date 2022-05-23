@@ -40,22 +40,24 @@ export default function RecipeDetail() {
                     Object.keys(detail).length > 0 && !loading ?
 
                     <div>
-                        <h1>{detail.title}</h1>
+                        <h1 className={s.h1}>{detail.title}</h1>
                         <img src={detail.image} alt="" width="300px" />
+                        <p> SCORE:</p>
                         <p>{detail.score}</p>
+                        <p> HEALTH SCORE:</p>
                         <p>{detail.healthScore}</p>
-                        <p> Dish Type:</p>
+                        <p> DISH TYPE:</p>
                         <p>{detail.dishTypes}</p>
-                        <p> Diet Type:</p>
+                        <p> DIET TYPE:</p>
                         {detail.dietType?.map((el) => el).join(", ")}
-                        <p> Summary:</p>
+                        <p> SUMMARY:</p>
                         <p dangerouslySetInnerHTML={detailSummary()}></p>
-                        <p> Instructions:</p>
+                        <p> INSTRUCTIONS:</p>
                         <span>{!detail.steps? "not instructions avalailable" : detail.steps}</span>
                         <div>
                         <br/>
                             <Link to={'/home'}>
-                                <button>Go back to Home</button>
+                                <button className={s.btn}>Go back to Home</button>
                             </Link>
                         </div>
                     </div> : !Object.keys(detail).length > 0 && loading ? (

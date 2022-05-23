@@ -19,7 +19,7 @@ function App() {
         <Route exact path= '/recipe' component={NewRecipe}/>
         <Route exact path="/recipes/:id" component={RecipeDetail}/>
         <Route path="*" component={NotFound}/>
-
+        
       </Switch>
     </div>
     </BrowserRouter>

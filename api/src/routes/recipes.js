@@ -1,7 +1,7 @@
 const { Router } = require('express');
 require('dotenv').config();
-// const { API_KEY } = process.env;
- const { Recipe, DietType } = require('../db');
+//const { API_KEY } = process.env;
+const { Recipe, DietType } = require('../db');
 //const axios = require('axios');
 const InfoTotal = require('../../InfoTotal.json')
 
@@ -84,7 +84,6 @@ router.get('/:id', async (req, res) => {
                     dishTypes: el.dishTypes,
                     image: el.image,
                     steps: el.steps || el.instructions
-
                 })
             }
         })

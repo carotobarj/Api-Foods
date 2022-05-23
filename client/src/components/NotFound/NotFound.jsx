@@ -1,13 +1,13 @@
 import React from "react";
-
+import s from './NotFound.module.css';
+import image from '../../images/pageNotFound.png'
 
 export default function NotFound() {
 
     return (
         <div>
-            <h1>404</h1>
-            <h2>Page not found</h2>
-        </div>
+        <img className={s.notFound} src={image}alt=''/>
+    </div>
     )
 }
 

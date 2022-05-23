@@ -1,45 +1,138 @@
 .image {
     position: fixed;
     object-fit: cover;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     z-index: -1;
-   
     height: 100vh;
     width: 100%;
     align-content: center;
     border-radius: 10px;
-   
-}
-.formGral{
-    
-    justify-content: center;
-    width:70%;
-    margin:auto;
-    display: grid;
+
 }
 
-.label{
+.titulo {
+    font-weight: bold;
+    font-size: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.container {
     display: flex;
-    justify-content: center;   
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+
 }
-.input{
-    padding: 5px 70px; 
-}
-/* .input {
-    border: none;
+
+.select {
+    padding: 5px 70px;
     border-radius: 15px;
-    padding: 15px;
-    background-color: #e8e8e8;
-    box-shadow: 6px 6px 12px #ffffff,
-                -6px -6px 12px #c5c5c5;
     font-size: medium;
     font-weight: bold;
-    max-width: 200px;
-   }
-   
-   .input:focus {
-    outline-color: white;
-    place-content: "Enter your message!";
-   }   
-    */
+}
+
+.formGral {
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+    height: fit-content;
+    margin-top: 200px;
+    background-color: rgba(149, 120, 111, 0.856);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.label {
+    display: flex;
+    justify-content: center;
+    font-size: medium;
+    font-weight: bold;
+
+}
+
+.input {
+    padding: 5px 70px;
+    border-radius: 15px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.btnhome {
+    align-items: center;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: Helvetica, "sans-serif";
+    transition: all .2s;
+    margin-top: 50px;
+    padding: 10px 20px;
+    border-radius: 100px;
+    background: rgba(149, 120, 111, 0.856);
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    position: absolute;
+
+}
+
+.btnhome:hover {
+    background: rgba(99, 43, 26, 0.856);
+}
+
+.btnhome:active {
+    transform: scale(0.95);
+}
+
+.create {
+
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    width: 140px;
+    height: 20px;
+    background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+    border-radius: 30px;
+    border: 1px solid #8F9092;
+    transition: all 0.2s ease;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #606060;
+    text-shadow: 0 1px #fff;
+}
+
+.create:hover {
+    box-shadow: 0 4px 3px 1px #632801, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
+}
+
+.create:active {
+    box-shadow: 0 4px 3px 1px #b47b4c, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+}
+
+.create:focus {
+    box-shadow: 0 4px 3px 1px #715127, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+}
+
+.btnX {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    background-image: linear-gradient(to top, #442105 0%, #fff 80%, #FDFDFD 100%);
+    border-radius: 30px;
+    border: 1px solid #8F9092;
+    transition: all 0.2s ease;
+    color: #606060;
+    text-shadow: 0 1px #fff;
+}
+
+.delDiet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

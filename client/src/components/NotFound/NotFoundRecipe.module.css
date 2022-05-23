@@ -1,0 +1,10 @@
+.image {
+    
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    align-content: center;
+    border-radius: 10px;
+
+}

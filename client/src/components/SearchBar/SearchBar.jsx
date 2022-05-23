@@ -21,9 +21,9 @@ export default function SearchBar() {
     }
 
     return (
-        <div className={s.searchBar}>
-            <input type = "text" placeholder = "Search by Name" onChange = {(e)=> handleInputChange(e)}/>
-            <button onClick ={(e)=> handleSubmit(e)}>Search</button>
+        <div>
+            <input className={s.searchBar} type = "text" placeholder = "Search by Name" onChange = {(e)=> handleInputChange(e)}/>
+            <button className={s.btnS}onClick ={(e)=> handleSubmit(e)}>Search</button>
         </div>
     )
 }

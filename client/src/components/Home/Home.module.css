@@ -1,28 +1,92 @@
-.Titulo{
+.Titulo {
     text-align: center;
     padding-bottom: 0.5em;
-    font-style: normal;
     font-weight: bold;
-    color: rgb(203, 197, 201);
+    color: rgb(194, 172, 4);
+    font-size: 60px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   background-color: rgba(90, 31, 2, 0.5);
+   width: 450px;
+   justify-content: right;
+
+   align-items: center;
+   margin-left: 42%;
+   border-radius: 15px;
+
 }
 
- .image {
+.image {
     position: fixed;
     object-fit: cover;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     z-index: -1;
-   
     height: 100vh;
     width: 100%;
     align-content: center;
     border-radius: 10px;
-   
-} 
-.btnR{
-    
+
 }
-.card2{
+.vinculo{
+    text-decoration: none;
+    text-align: center;
+    padding: 50px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(250, 246, 246);
+    padding: 25px;
+}
+
+.selected{
+    padding: 5px 50px;
+    border-radius: 10px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.btnR {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgb(70, 46, 2);
+    font-weight: bold;
+    padding: 10px 30px;
+    border: 1px solid;
+    border-radius: 10px;
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
+}
+
+.btnR:hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+}
+
+.btnR:active {
+    transform: translateY(-3px);
+}
+
+.btnR::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    transition: all .3s;
+}
+
+.btnR:hover::after {
+    background-color: rgb(243, 153, 7);
+    transform: scaleX(1.4) scaleY(1.5);
+    opacity: 0;
+}
+
+.card2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -37,4 +101,4 @@
 
 }
 
-@media only screen and (min-width:501) and (max-width: 850px) {} 
+@media only screen and (min-width:501) and (max-width: 850px) {}

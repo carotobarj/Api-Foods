@@ -119,10 +119,12 @@ export default function NewRecipe() {
     return (
         <div className={s.container}>
             <img className={s.image} src={image} alt='' />
-            <h1 className={s.titulo}>New Recipe</h1>
+            <Link to="/home"><button className={s.btnhome}>Go Back to Home</button></Link>
             <form className={s.formGral}onSubmit={(e) => handleSubmit(e)}>
+            <h1 className={s.titulo}>New Recipe</h1>
+           
                    <label className={s.label}>Title:</label>
-                <div >
+                <div>
                     <input className={s.input} type='text' placeholder='Complete here...' value={input.title} name='title' onChange={(e) => handleChange(e)} />
                     {errors.title && <p>{errors.title}</p>}
                 </div>
@@ -139,6 +141,7 @@ export default function NewRecipe() {
                     <label className={s.label}>Diet Types:</label>
                 <div >
                        <select onChange={(e) => handleSelect(e)} className={s.select}>
+                       <option value='ALL'> Total Recipes </option>
                         {dietType?.map(el => (
                             <option key={el} value={el}>{el}</option>
                         ))
@@ -162,27 +165,24 @@ export default function NewRecipe() {
                     <input className={s.input} type='text' placeholder='Complete here...' value={input.healthScore} name='healthScore' onChange={(e) => handleChange(e)} />
                     {errors.healthScore && <p>{errors.healthScore}</p>}
                 </div>
-                <label className='labelInstruct'>Instructions:</label>
-                <div className={s.label}>
+                <label className={s.label}>Instructions:</label>
+                <div>
                     <textarea type='text' className={s.input} placeholder='Complete here...' value={input.instructions} name='instructions'
                         onChange={(e) => handleChange(e)} />
                     {errors.instructions && <p>{errors.instructions}</p>}
-      
-
-                </div>
-                <button type='submit'>Create</button>
+                    </div>
+                <br/>
+                <button className={s.create}type='submit'>Create</button>
             </form>
             {input.dietType.map(el =>
                 <div key={el} className={s.delDiet}>
                     <p> {el}</p>
-                    <button className='btnX' onClick={() => handleDelete(el)}>X</button>
+                    <button className={s.btnX} onClick={() => handleDelete(el)}>X</button>
                 </div>
-
             )}
-          
             <br />
 
-            <Link to="/home"><button>Go Back to Home</button></Link>
+            
         </div>
     )
 }

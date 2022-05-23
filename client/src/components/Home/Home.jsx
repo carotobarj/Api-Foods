@@ -72,10 +72,10 @@ if(allRecipes.length > 0 && loading){
     return (
         <div className={s.container}>
              <img className={s.image} src={image}alt=''/> 
-            <h1 className={s.Titulo}>MY RECIPES</h1>
+            <h1 className={s.Titulo}>MY RECIPES ☕️</h1>
             <button className={s.btnR} onClick={e => (handleOnClick(e))}>Reload all Recipes</button>
-            <div className={s.titulo}>
-                <Link to="/recipe"> Create you own recipe </Link>
+            <div> 
+                <Link to="/recipe" className={s.vinculo}> Create you own recipe </Link>
             </div>
             <div className={s.busqueda}>
                 <SearchBar
@@ -83,26 +83,26 @@ if(allRecipes.length > 0 && loading){
             </div>
             <div className={s.filros}>
 
-                <select onChange={e => handleSort(e)} >
+                <select onChange={e => handleSort(e)} className={s.selected}>
                     <option value='Alphabetical Order'> ALPHABETICAL ORDER </option>
                     <option value='AZ'> Ordenar A-Z </option>
                     <option value='ZA'> Ordenar Z-A </option>
                 </select>
 
-                <select onChange={e => handleFilterByCreator(e)}>
-                    <option value='ALL'> Total Recipes </option>
+                <select onChange={e => handleFilterByCreator(e)} className={s.selected}>
+                    <option value='ALL'> ALL RECIPES </option>
                     <option value='createdInDb'> Recipes Created </option>
                     <option value='JE'> Recipes Api </option>
                 </select>
 
-                <select onChange={(e) => handleFilterByDiets(e)}>
-                <option value='ALL'> Total Recipes </option>
+                <select onChange={(e) => handleFilterByDiets(e)} className={s.selected}>
+                <option value='ALL'> TOTAL RECIPES </option>
                 {dietType?.map(el => (
                             <option key={el} value={el}>{el}</option>
                         ))
                         }
                 </select>
-                <select onChange={e => handleScore(e)}>
+                <select onChange={e => handleScore(e)} className={s.selected}>
                     <option value='Order By Score'> ORDER BY SCORE </option>
                     <option value='Score-+'> Score -+</option>
                     <option value='Score+-'> Score +- </option>

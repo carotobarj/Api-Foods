@@ -1,47 +1,62 @@
-.pagination {
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px;
+    text-align: center;
+    display: inline-flex;
+}
 
+.number {
+    width: 15px;
+    height: 30px;
+    margin: 3px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    background-image: linear-gradient(to top, #442105 0%, #fff 80%, #FDFDFD 100%);
+    }
+
+.number:hover {
+    box-shadow: inset 0 0 20px rgba(124, 124, 124, 0.851), 0 0 20px rgba(95, 95, 95, 0.732);
+    outline-offset: 80px;
+    text-shadow: 1px 1px 6px #fff;
+}
+
+.pagination {
     width: 100vw;
     justify-content: center;
-    border-radius: 5px;
-    font-size: 22px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    margin: 1px;
+    border-radius: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0px;
     margin-top: 0px;
-    
 }
 
 .pagination ul {
-    height: 50px;
-    width: 40px;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-
-
-}
-
-.pagination li {
-    display: flex;
-    height: 130px;
-    width: 150px;
-    justify-content: center;
-    align-items: center;
-    margin-left: 5px;
+   padding: 0.2%;
 }
 
 .btn {
-    height: 15px;
-    width: 35px;
-    margin: 5px;
-    font-weight: bold;
-    border-radius: 20px;
-    background-color: rgb(244, 247, 239);
-    border: solid 1px rgb(4, 7, 0);
+    align-items: center;
+    justify-content: center; 
+    cursor: pointer;
+    width: 30px;
+    height: 0,3px;
+    background-image: linear-gradient(to top, #442105 0%, #fff 80%, #FDFDFD 100%);
+    border-radius: 45px;
+    border: 1px solid #8F9092;
+    transition: all 0.2s ease;
+    color: #070000;
+    text-shadow: 0 1px rgb(129, 5, 5);
+    text-align: center;
+    padding: 1%;
 }
+
 
 .btn:hover {
     transform: scale(1.10);
-       
-}
 
+}
