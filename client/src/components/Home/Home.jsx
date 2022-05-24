@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getAll, getAllDiets, filterByDiets, orderByScore, orderByName, filterByCreator } from '../../actions/index';
+import { getAll, getAllDiets, filterByDiets, orderByScore, orderByName, filterByCreator} from '../../actions/index';
 import { useDispatch, useSelector } from 'react-redux';
 import PaginationRecipes from '../PaginationRecipes/PaginationRecipes';
 import SearchBar from '../SearchBar/SearchBar';
@@ -46,7 +46,12 @@ if(allRecipes.length > 0 && loading){
     }, [dispatch]);
 
     function handleOnClick(e) {
-        dispatch(getAll())
+        window.location.reload();
+        //dispatch(getAll())
+        //e.preventDefault();
+        
+       
+
     }
     function handleFilterByCreator(e) {
         e.preventDefault();
