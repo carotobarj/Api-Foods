@@ -32,7 +32,7 @@ __Pagina inicial__: deben armar una landing page con
 - [ ] Alguna imagen de fondo representativa al proyecto
 - [ ] Botón para ingresar al home (`Ruta principal`)
 
-<img width="1376" alt="landing" src="https://user-images.githubusercontent.com/82724532/177236163-61a86e8a-e406-4037-944e-ae073e1b43f0.png">
+![landing](https://user-images.githubusercontent.com/82724532/177237789-be316c08-447c-4d62-a436-24d0b5edbef6.jpg)
 
 __Ruta principal__: debe contener
 - [ ] Input de búsqueda para encontrar recetas por nombre
@@ -44,7 +44,8 @@ __Ruta principal__: debe contener
 - [ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente las recetas por orden alfabético y por puntuación
 - [ ] Paginado para ir buscando y mostrando las siguientes recetas, 9 recetas por pagina, mostrando las primeros 9 en la primer pagina.
 
-<img width="688" alt="home" src="https://user-images.githubusercontent.com/82724532/177236234-3967956f-c651-4c3d-9787-13c29ddb3d32.png">
+![home](https://user-images.githubusercontent.com/82724532/177238394-fa5978d7-0465-4977-a09f-16db25de14e3.jpg)
+
 
 __Ruta de detalle de receta__: debe contener
 - [ ] Los campos mostrados en la ruta principal para cada receta (imagen, nombre, tipo de plato y tipo de dieta)
@@ -53,7 +54,7 @@ __Ruta de detalle de receta__: debe contener
 - [ ] Nivel de "comida saludable"
 - [ ] Paso a paso
 
-![detalle](https://user-images.githubusercontent.com/82724532/177236305-8b019e79-2cef-4d82-9953-3dcb64af0929.png)
+![detalle](https://user-images.githubusercontent.com/82724532/177237856-b44175e7-168c-44f9-92e2-9513c093f2e8.jpg)
 
 __Ruta de creación de recetas__: debe contener
 - [ ] Un formulario __controlado con JavaScript__ con los siguientes campos:
@@ -65,7 +66,7 @@ __Ruta de creación de recetas__: debe contener
 - [ ] Posibilidad de seleccionar/agregar uno o más tipos de dietas
 - [ ] Botón/Opción para crear una nueva receta
 
-![creacion](https://user-images.githubusercontent.com/82724532/177236370-60af286c-76a5-48cf-84ed-f09ed0d69e7b.png)
+![creacion](https://user-images.githubusercontent.com/82724532/177237964-e8085e9f-6160-43d4-bce2-f5f48a24db1b.jpg)
 
 > El formulario de creación está validado con JavaScript y no sólo con validaciones HTML. 
 
@@ -73,11 +74,11 @@ __Componentes de Not Found:
  - [ ] Componentes para renderizar cuando no hay resultados de la búsqueda
  - No se encuentra receta ni id
 
-<img width="1367" alt="notfoundrecipe" src="https://user-images.githubusercontent.com/82724532/177236687-6514db1e-6a71-48ea-9423-793976286018.png">
+![notfoundrecipe](https://user-images.githubusercontent.com/82724532/177237983-7a57856e-bdb4-4c0b-a658-237d8b5f0a01.jpg)
 
 - Se ingresa una ruta que no existe.
 
-![notfoundpage](https://user-images.githubusercontent.com/82724532/177236769-52970a2f-7a4d-459e-8ae8-2bd81f055b1a.png)
+![notfoundpage](https://user-images.githubusercontent.com/82724532/177238001-56b68fb0-11ad-4407-bf33-9888686a4ba5.jpg)
 
 #### Base de datos
 
