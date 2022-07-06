@@ -15,7 +15,7 @@ export const FILTER_BY_CREATOR = 'FILTER_BY_CREATOR';
 
 export function getAll() {
     return function (dispatch) {
-        axios.get('http://localhost:3001/recipes')
+        axios.get('/recipes')
             .then((json) => {
                 return dispatch({
                     type: GET_ALL,
@@ -45,7 +45,7 @@ export function getAllDiets() {
 
     return async function (dispatch) {
         try {
-            var dietTypes = await axios.get('http://localhost:3001/types');
+            var dietTypes = await axios.get('/types');
             console.log(dietTypes.data);
             return dispatch({
                 type: GET_ALL_DIETS,
@@ -60,7 +60,7 @@ export function getAllDiets() {
 export function searchByName(name) {
     return async function (dispatch) {
         try {
-            var json = await axios.get(`http://localhost:3001/recipes?name=${name}`)
+            var json = await axios.get(`/recipes?name=${name}`)
             return dispatch({
                 type: SEARCH_BY_NAME,
                 payload: json.data
@@ -106,7 +106,7 @@ export function orderByName(payload) {
 };
 export function recipeDetail(id) {
     return function (dispatch) {
-        axios.get(`http://localhost:3001/recipes/${id}`)
+        axios.get(`/recipes/${id}`)
             .then(json => dispatch({
                 type: "RECIPE_DETAIL",
                 payload: json.data
@@ -121,7 +121,7 @@ export function recipeDetail(id) {
 export function postRecipe(payload) {
     //console.log(payload)
     return async function () {
-        const creado = await axios.post("http://localhost:3001/recipe", payload)
+        const creado = await axios.post("/recipe", payload)
         //console.log(creado)
         return creado;
 
