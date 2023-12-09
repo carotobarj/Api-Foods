@@ -7,7 +7,7 @@ body {
   background: black;
 }
 
-.loader {
+.clockloader {
   --clock-color: var(--primary-color);
   --clock-width: 4rem;
   --clock-radius: calc(var(--clock-width) / 2);
