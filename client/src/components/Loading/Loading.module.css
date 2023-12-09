@@ -1,55 +1,52 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  background: black;
-}
-
-.clockloader {
-  --clock-color: var(--primary-color);
-  --clock-width: 4rem;
-  --clock-radius: calc(var(--clock-width) / 2);
-  --clock-minute-length: calc(var(--clock-width) * 0.4);
-  --clock-hour-length: calc(var(--clock-width) * 0.2);
-  --clock-thickness: 0.2rem;
-
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: var(--clock-width);
-  height: var(--clock-width);
-  border: 3px solid var(--clock-color);
-  border-radius: 50%;
-
-  &::before,
-  &::after {
-    position: absolute;
-    content: "";
-    top: calc(var(--clock-radius) * 0.25);
-    width: var(--clock-thickness);
-    background: var(--clock-color);
-    border-radius: 10px;
-    transform-origin: center calc(100% - calc(var(--clock-thickness) / 2));
-    animation: spin infinite linear;
+.loader {
+  padding: 150px;
+  height: 50px;
+ width: max-content;
+ font-size: 50px;
+ font-weight: 600;
+ font-family: monospace;
+ letter-spacing: 1em;
+ color: #143a1368;
+ filter: drop-shadow(0 0 10px);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ }
+ 
+ .loader span {
+  animation: loading6454 1.75s ease infinite;
+ }
+ 
+ .loader span:nth-child(2) {
+  animation-delay: 0.25s;
+ }
+ 
+ .loader span:nth-child(3) {
+  animation-delay: 0.5s;
+ }
+ 
+ .loader span:nth-child(4) {
+  animation-delay: 0.75s;
+ }
+ 
+ .loader span:nth-child(5) {
+  animation-delay: 1s;
+ }
+ 
+ .loader span:nth-child(6) {
+  animation-delay: 1.25s;
+ }
+ 
+ .spinner span:nth-child(7) {
+  animation-delay: 1.5s;
+ }
+ 
+ @keyframes loading6454 {
+  0%, 100% {
+   transform: translateY(0);
   }
-
-  &::before {
-    height: var(--clock-minute-length);
-    animation-duration: 2s;
+ 
+  50% {
+   transform: translateY(-10px);
   }
-
-  &::after {
-    top: calc(var(--clock-radius) * 0.25 + var(--clock-hour-length));
-    height: var(--clock-hour-length);
-    animation-duration: 15s;
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(1turn);
-  }
-}
+ }
